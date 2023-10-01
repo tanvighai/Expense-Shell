@@ -13,7 +13,7 @@ echo removing old Nginx content
 rm -rf /usr/share/nginx/html/* >>$log_file
 
 
-
+download_and_extract
 echo starting Ngnix service
 systemctl enable nginx >>$log_file
 systemctl restart nginx >>$log_file
