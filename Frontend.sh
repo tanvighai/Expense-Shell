@@ -1,5 +1,5 @@
 source common.sh
-
+component=frontend
 
 
 echo installing Nginx
@@ -13,7 +13,7 @@ cp expense.conf /etc/nginx/default.d/expense.conf >>$log_file
 echo removing old Nginx content
 rm -rf /usr/share/nginx/html/* >>$log_file
 
-
+cd /usr/share/nginx/html
 download_and_extract
 echo starting Ngnix service
 systemctl enable nginx >>$log_file
