@@ -4,6 +4,7 @@ source common.sh
 
 echo installing Nginx
 dnf install nginx -y >>$log_file
+
 echo placing expense confif file in Ngnix
 cp expense.conf /etc/nginx/default.d/expense.conf >>$log_file
 
