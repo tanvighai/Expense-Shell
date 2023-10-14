@@ -42,6 +42,7 @@ else
   echo FAIL
 fi
 systemctl restart nginx &>>$log_file
+
 if [$? -eq 0];then
 echo SUCCESS
 else
