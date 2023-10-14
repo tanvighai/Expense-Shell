@@ -6,45 +6,20 @@ echo installing Nginx
 dnf install nginx -y &>>$log_file
 
 
-if [$? -eq 0];then
-echo SUCCESS
-else
-  echo FAIL
-fi
+stat_check()
 echo placing expense confif file in Ngnix
 cp expense.conf /etc/nginx/default.d/expense.conf &>>$log_file
-if [$? -eq 0];then
-echo -e "\e[32mSUCCESS\e[0m"
-else
-  echo -e "\e[31mFAILURE\e[0m”
-fi
-
+stat_check()
 
 echo removing old Nginx content
 rm -rf /usr/share/nginx/html/* &>>$log_file
-if [$? -eq 0];then
-echo -e "\e[32mSUCCESS\e[0m"
-else
-  echo -e "\e[31mFAILURE\e[0m”
-fi
+stat_check()
 cd /usr/share/nginx/html
 download_and_extract
-if [$? -eq 0];then
-echo -e "\e[32mSUCCESS\e[0m"
-else
-  echo -e "\e[31mFAILURE\e[0m”
-fi
+stat_check()
 echo starting Ngnix service
 systemctl enable nginx &>>$log_file
-if [$? -eq 0];then
-echo -e "\e[32mSUCCESS\e[0m"
-else
-  echo -e "\e[31mFAILURE\e[0m”
-fi
+stat_check()
 systemctl restart nginx &>>$log_file
 
-if [$? -eq 0];then
-echo -e "\e[32mSUCCESS\e[0m"
-else
-  echo -e "\e[31mFAILURE\e[0m”
-fi
+stat_check()
