@@ -14,37 +14,37 @@ fi
 echo placing expense confif file in Ngnix
 cp expense.conf /etc/nginx/default.d/expense.conf &>>$log_file
 if [$? -eq 0];then
-echo SUCCESS
+echo -e ‘\e[32mSUCCESS\e[0m”
 else
-  echo FAIL
+  echo -e ‘\e[31mFAILURE\e[0m”
 fi
 
 
 echo removing old Nginx content
 rm -rf /usr/share/nginx/html/* &>>$log_file
 if [$? -eq 0];then
-echo SUCCESS
+echo -e ‘\e[32mSUCCESS\e[0m”
 else
-  echo FAIL
+  echo -e ‘\e[31mFAILURE\e[0m”
 fi
 cd /usr/share/nginx/html
 download_and_extract
 if [$? -eq 0];then
-echo SUCCESS
+echo -e ‘\e[32mSUCCESS\e[0m”
 else
-  echo FAILED
+  echo -e ‘\e[31mFAILURE\e[0m”
 fi
 echo starting Ngnix service
 systemctl enable nginx &>>$log_file
 if [$? -eq 0];then
-echo SUCCESS
+echo -e ‘\e[32mSUCCESS\e[0m”
 else
-  echo FAIL
+  echo -e ‘\e[31mFAILURE\e[0m”
 fi
 systemctl restart nginx &>>$log_file
 
 if [$? -eq 0];then
-echo SUCCESS
+echo -e ‘\e[32mSUCCESS\e[0m”
 else
-  echo FAIL
+  echo -e ‘\e[31mFAILURE\e[0m”
 fi
