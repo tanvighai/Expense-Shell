@@ -18,7 +18,6 @@ if expense &>>log_file
 if [ $? -ne 0 ];then
 
 useradd expense &>>$log_file
-
 fi
 echo clean app content
 rm-rf /app &>>$log_file
